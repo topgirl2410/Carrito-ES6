@@ -100,11 +100,6 @@ function leerDatosCurso(curso) {
         articulosCarrito = [...articulosCarrito, infoCurso]; // Agregamos una copia del carrito original vacio e incluimos infoCurso;
     }
 
-
-
-
-    console.log(articulosCarrito)
-
     carritoHTML();
 
 }
@@ -139,6 +134,17 @@ function carritoHTML() {
 
         contenedorCarrito.appendChild(row);
     });
+
+    // Agregar el carrito de compras al Local Storage
+
+    sincronizarStorage();
+
+}
+
+// Sicronizar el carrito con Local Storage
+
+function sincronizarStorage() {
+    localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
 }
 
 // Elimina los cursos del tbody
